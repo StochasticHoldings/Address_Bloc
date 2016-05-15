@@ -1,42 +1,38 @@
-require_relative '../models/entry'
-##1
+require_relative '../models/entry.rb'
+
 RSpec.describe Entry do
-## 2
-  describe "attributes" do
-    let(:entry) {Entry.new('Joe Shmoe','1-800-cell-number','test@email.com')}
-## 3
-    it "responds to name" do
+  context "attributes" do
+    let(:entry) {entry = Entry.new("Master Panda", "6048089532", "panda@dockwalker.com")}
+    it "should respond to name" do
       expect(entry).to respond_to(:name)
     end
 
-    it "reports its name" do
-      expect(entry).to  eq(:name)
-    end
-
-## 4
-    it "responds to phone number" do
+    it "should respond to phone number" do
       expect(entry).to respond_to(:phone_number)
     end
 
-    it "reports its phone number" do
-      expect(entry).to eq(:phone_number)
-    end
-
-     it "responds to email" do
+    it "should respond to email" do
       expect(entry).to respond_to(:email)
     end
 
-    it "reports its" do
-      expect(entry).to eq(:email)
+    it "should return the name" do
+      expect(entry.name).to eq("Master Panda")
+    end
+    it "should return the phone number" do
+      expect(entry.phone_number).to eq("6048089532")
+    end
+    it "should return the email" do
+      expect(entry.email).to eq("panda@dockwalker.com")
     end
   end
-  # # 5
-    describe "#to_s" do
-      it "prints an entry as a string" do
-        entry = Entry.new('Joe Shmoe','1-800-cell-number','test@email.com')
-        expected_string = "Name: Joe Shmoe\n Phone Number: 1-800-cell-number\n Email: 'test@email.com"
-  # # 6
-        expect(entry.to_s).to eq(expected_string)
-      end
-   end
+end
+
+RSpec.describe `#to_s` do
+  let(:entry) {entry = Entry.new("Master Panda", "6048089532", "panda@dockwalker.com")}
+  context "with entry" do
+    it "should return a string for entry" do
+      expect(entry.to_s).to eq("Master Panda, 6048089532, panda@dockwalker.com\n")
+
+    end
+  end
 end

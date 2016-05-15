@@ -1,13 +1,12 @@
+# entry in our address book
 class Entry
   attr_accessor :name, :phone_number, :email
 
-  def initialize(name,phone_number,email)
-    @name = name
-    @phone_number = phone_number
-    @email = email
+  def initialize(name, phone_number, email)
+    @name, @phone_number, @email = name, phone_number, email
   end
-# # 7
+
   def to_s
-    "Name: #{name}\nPhone Number: #{phone_number}\nEmail: #{email}"
+    "#{name}, #{phone_number}, #{email}\n"
   end
 end

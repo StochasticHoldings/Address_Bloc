@@ -23,4 +23,14 @@ class AddressBook
     end
     entries
   end
+
+  # removes a matching entry
+  def remove_entry(name, phone_number, email)
+    return entries if entries.empty?
+    entries.each.with_index do |entry, index|
+      if entry.name == name && entry.phone_number == phone_number && entry.email == email
+        entries.delete_at(index)
+      end
+    end
+  end
 end

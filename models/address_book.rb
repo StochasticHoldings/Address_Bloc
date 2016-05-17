@@ -1,32 +1,26 @@
-require_relative 'entry'
-
-class AdressBook
-  attr_accessor :entries
+require_relative 'entry.rb'
+class AddressBook
+  attr_reader :entries
 
   def initialize
-  @entries  = []
+    @entries = []
   end
 
-  def remove_entry(name,phone,email)
-    delete_entry = nil
+  # adds an entry to entries in name lexicographical order
+  def add_entry(entry)
+    return entries if !entry || entries.include?(entry)
 
-    @entries.each do |entry|
-      if name == entry.name && phone == entry.phone_number && email == entry.email
-          delete_entry = entry
+    if entries.empty?
+      entries << entry
+    else
+      for index in 0...entries.length
+        if entry.name < entries[index].name
+          entries.insert(index, entry)
+        elsif index == entries.length - 1
+          entries << entry
+        end
       end
-  end
-
-    @entries.delete(delete_entry)
-  end
-
-   def add_entry(name,phone_number,email)
-     index = 0
-     @entries.each do |entry|
-       if name < entry.name
-         break
-     end
-     index += 1
-   end
-    @entries.insert(index,Entry.new(name,phone_number,email))
+    end
+    entries
   end
 end

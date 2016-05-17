@@ -1,20 +1,12 @@
+# entry in our address book
 class Entry
+  attr_accessor :name, :phone_number, :email
 
-attr_accessor :name, :phone_number, :email
+  def initialize(name, phone_number, email)
+    @name, @phone_number, @email = name, phone_number, email
+  end
 
-
- it "responds to name" do
-  entry = Entry.new('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
-  expect(entry).to respond_to(:name)
- end
-
- it "responds to phone number" do
-  entry = Entry.new('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
-  expect(entry).to respond_to(:phone_number)
- end
-
- it "responds to email" do
-  entry = Entry.new('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
-  expect(entry).to respond_to(:email)
- end
+  def to_s
+    "#{name}, #{phone_number}, #{email}\n"
+  end
 end

@@ -32,10 +32,10 @@ end
 
 RSpec.describe `#to_s` do
   let(:entry) {entry = Entry.new("Master Panda", "6048089532", "panda@dockwalker.com")}
+  
   context "with entry" do
     it "should return a string for entry" do
       expect(entry.to_s).to eq("Master Panda, 6048089532, panda@dockwalker.com\n")
-
     end
   end
 end

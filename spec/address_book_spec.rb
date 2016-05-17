@@ -21,7 +21,7 @@ end
 RSpec.describe AddressBook do
   context '#add_entry' do
     let(:book) {book = AddressBook.new}
-    let(:entry) {entry = Entry.new("kevin", "555-555-1212", "email@gmail.com")}
+    let(:entry) {entry = Entry.new("colby", "555-555-1212", "email@gmail.com")}
     let (:entry1) {entry1 = Entry.new("a", "555-1212", "email")}
     let (:entry2) {entry2 = Entry.new("b", "555-1212", "email")}
     let (:entry3) {entry3 = Entry.new("c", "555-1212", "email")}

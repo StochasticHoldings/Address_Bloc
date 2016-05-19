@@ -1,8 +1,8 @@
-# 
-# file:   address_bloc.rb
-# author: kevin gulstene
-# date:   May 2, 2016
-# desc:   Very simple command line ruby script to manage addresses
-#
+require_relative 'controllers/menu_controller'
 
+menu = MenuController.new
+
+system "clear"
 puts "Welcome to AddressBloc!"
+
+menu.main_menu

@@ -3,3 +3,4 @@ Use this file to say where you left off:
 "Checkpoint 19" :  Error in spec for address_book.rb entry.rb passes.
 
 Checkpoint 21 "Left off at assignement, Also before doing assignement submit the a branch from the checkpoint after confirming with Conrad"
+Checkpoint 21 ASIGNMENT

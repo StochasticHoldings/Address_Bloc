@@ -3,6 +3,12 @@ require_relative '../models/entry.rb'
 RSpec.describe Entry do
   context "attributes" do
     let(:entry) {entry = Entry.new("Master Panda", "6048089532", "panda@dockwalker.com")}
+
+    def check_entry(entry, expected_name, expected_number, expected_email)
+        expect(entry.name).to eq expected_name
+        expect(entry.phone_number).to eq expected_number
+        expect(entry.email).to eq expected_email
+      end
     
     it "should respond to name" do
       expect(entry).to respond_to(:name)
@@ -19,11 +25,11 @@ RSpec.describe Entry do
     it "should return the name" do
       expect(entry.name).to eq("Master Panda")
     end
-    
+
     it "should return the phone number" do
       expect(entry.phone_number).to eq("6048089532")
     end
-    
+
     it "should return the email" do
       expect(entry.email).to eq("panda@dockwalker.com")
     end
@@ -32,7 +38,7 @@ end
 
 RSpec.describe `#to_s` do
   let(:entry) {entry = Entry.new("Master Panda", "6048089532", "panda@dockwalker.com")}
-  
+
   context "with entry" do
     it "should return a string for entry" do
       expect(entry.to_s).to eq("Master Panda, 6048089532, panda@dockwalker.com\n")

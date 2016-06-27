@@ -1,3 +1,5 @@
 Use this file to say where you left off:
 
-About to start checkpoint 22.
+About to start assignment 22
+Reading this article.
+https://www.atlassian.com/git/tutorials/saving-changes/git-commit

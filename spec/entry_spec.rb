@@ -5,11 +5,11 @@ RSpec.describe Entry do
     let(:entry) {entry = Entry.new("Master Panda", "6048089532", "panda@dockwalker.com")}
 
     def check_entry(entry, expected_name, expected_number, expected_email)
-        expect(entry.name).to eq expected_name
-        expect(entry.phone_number).to eq expected_number
-        expect(entry.email).to eq expected_email
-      end
-    
+      expect(entry.name).to eq expected_name
+      expect(entry.phone_number).to eq expected_number
+      expect(entry.email).to eq expected_email
+    end
+
     it "should respond to name" do
       expect(entry).to respond_to(:name)
     end
@@ -37,11 +37,11 @@ RSpec.describe Entry do
 end
 
 RSpec.describe `#to_s` do
-  let(:entry) {entry = Entry.new("Master Panda", "6048089532", "panda@dockwalker.com")}
+let(:entry) {entry = Entry.new("Master Panda", "6048089532", "panda@dockwalker.com")}
 
-  context "with entry" do
-    it "should return a string for entry" do
-      expect(entry.to_s).to eq("Master Panda, 6048089532, panda@dockwalker.com\n")
-    end
+context "with entry" do
+  it "should return a string for entry" do
+    expect(entry.to_s).to eq("Master Panda, 6048089532, panda@dockwalker.com\n")
   end
+end
 end

@@ -53,6 +53,67 @@ RSpec.describe AddressBook do
       book.add_entry("b", "555-1212", "email")
       expect(book.entries.index(entry2)).to eq(1)
     end
+-----------------------------
+describe "#import_from_csv" do
+  it "imports the correct number of entries" do
+
+    book.import_from_csv("entries_2.csv")
+    book_size = book.entries.size
+
+    expect(book_size).to eq 3
+  end
+
+  it "imports the 1st entry" do
+    book.import_from_csv("entries_2.csv")
+
+    entry_one = book.entries[0]
+
+    check_entry(entry_one, "Fi", "555-555-4854", "bill@blocmail.com")
+  end
+
+  it "imports the 2nd entry" do
+    book.import_from_csv("entries_2.csv")
+
+    entry_two = book.entries[1]
+
+    check_entry(entry_two, "M", "555-555-5415", "bob@blocmail.com")
+  end
+
+  it "imports the 3rd entry" do
+    book.import_from_csv("entries_2.csv")
+
+    entry_three = book.entries[2]
+
+    check_entry(entry_three, "C", "555-555-3660", "joe@blocmail.com")
+  end
+end
+
+it "searches AddressBook for Fi" do
+  book.import_from_csv("entries_2.csv")
+  entry = book.binary_search("Fi")
+  expect(entry).to be_a Entry
+  check_entry(entry, "Fi", "555-555-4854", "bill@blocmail.com")
+end
+it "searches AddressBook for M" do
+  book.import_from_csv("entries_2.csv")
+  entry = book.binary_search("M")
+  expect(entry).to be_a Entry
+  check_entry(entry, "M", "555-555-5415", "bob@blocmail.com")
+end
+
+it "searches AddressBook for C" do
+  book.import_from_csv("entries_2.csv")
+  entry = book.binary_search("C")
+  expect(entry).to be_a Entry
+  check_entry(entry, "C", "555-555-3660", "joe@blocmail.com")
+end
+
+
+
+
+
+---------------------------------------------------------
+
 
     describe "#import_from_csv" do
       it "imports the correct number of entries" do
